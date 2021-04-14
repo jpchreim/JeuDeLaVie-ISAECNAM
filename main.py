@@ -5,21 +5,20 @@ import numpy as np
 import os
 import grid
 
-#Size of the panel
-width, height = 900,900
+os.environ["SDL_VIDEO_CENTERED"]='1'
+
+width, height = 1920,1080
 size = (width, height)
 
 pygame.init()
-#Title of the game
-pygame.display.set_caption("Jeu de la vie")
+pygame.display.set_caption("CONWAY'S GAME OF LIFE")
 screen = pygame.display.set_mode(size)
-
 clock = pygame.time.Clock()
-speed = 1 #Speed of the next
-
+fps = 60
 
 black = (0, 0, 0)
-blue1 = (0, 121, 150)
+blue = (0, 121, 150)
+blue1 = (0,14,71)
 white = (255, 255, 255)
 
 scaler = 40
@@ -31,7 +30,8 @@ Grid.random2d_array()
 
 run = True
 while run:
-    clock.tick(speed)
+    clock.tick(fps)
+    screen.fill(black)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
