@@ -20,7 +20,6 @@ if __name__ == "__main__":
     # Initialize the Game object with given params
     newGame = Game(900, 900, 20, 1)
     newGame.init_cells()
-
     status = True
     while status:
         clock.tick(speed)
@@ -32,3 +31,4 @@ if __name__ == "__main__":
         pygame.display.update()
 
     pygame.quit()
+#The end
