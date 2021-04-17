@@ -1,8 +1,10 @@
 import pygame
-import numpy as np
+import time
 import random
-
-class Grid:
+import numpy as np
+import os
+#Creating an object called game
+class Game:
     def __init__(self, width, height, scale, offset):
         self.scale = scale
         #Numbers of row and cols is relative to the width and height and the scale
