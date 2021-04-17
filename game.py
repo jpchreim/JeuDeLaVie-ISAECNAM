@@ -31,8 +31,9 @@ class Game:
         for n in range(-1, 2):
             for m in range(-1, 2):
                 # Calculationg from the current position, x and y the position of their cousins
-                surroundings_X = (x+n+self.row) % self.row
-                surroundings_Y = (y+m+self.col) % self.col
+                calculate_surrounding = lambda n,m,l : (n+m+l)%l 
+                surroundings_X = calculate_surrounding(x,n,self.row)
+                surroundings_Y = calculate_surrounding(y,m,self.col)
                 total_cousins += self.grid_array[surroundings_X][surroundings_Y]
         # We romved he current x and y
         total_cousins -= self.grid_array[x][y]
@@ -44,16 +45,15 @@ class Game:
         for x in range(self.row):
             for y in range(self.col):
                 # Get the coordinance of the current cell
-                position_Y = y * self.area
-                position_X = x * self.area
+                calculate_position= lambda n,m : n * m
+                position_Y = calculate_position(y,  self.area)
+                position_X = calculate_position(x,  self.area)
                 # If the cell is alive == 1 we give it the alive color
                 if self.grid_array[x][y] == 1:
-                    pygame.draw.rect(bg_Color, aliveCol, [
-                                     position_X, position_Y, self.area-self.offset, self.area-self.offset])
+                    pygame.draw.rect(bg_Color, aliveCol, [position_X, position_Y, self.area-self.offset, self.area-self.offset])
                 # If the cell is dead == 0 we will give it the dead color
                 else:
-                    pygame.draw.rect(bg_Color, deadCol, [
-                                     position_X, position_Y, self.area-self.offset, self.area-self.offset])
+                    pygame.draw.rect(bg_Color, deadCol, [position_X, position_Y, self.area-self.offset, self.area-self.offset])
 
         # Initialize a new 2 dimensional array that will contain the next move
         next = np.ndarray(shape=(self.size))  # The dimension won't change
