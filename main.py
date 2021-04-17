@@ -24,13 +24,11 @@ if __name__ == "__main__":
     status = True
     while status:
         clock.tick(speed)
-        mainPanel.fill(black)
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 status = False
 
-        newGame.this_cell(deadCol=white, aliveCol=red, bg_Color=mainPanel)
+        newGame.this_cell(red, white, mainPanel)
         pygame.display.update()
 
     pygame.quit()
