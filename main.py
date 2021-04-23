@@ -31,4 +31,4 @@ if __name__ == "__main__":
         pygame.display.update()
 
     pygame.quit()
-#This is the end of the code !
+#This is the end of the code ! LOL
