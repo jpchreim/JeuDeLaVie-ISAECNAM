@@ -73,3 +73,5 @@ class Game:
                 else:
                     next[x][y] = state
         self.grid_array = next  # Update the new changes
+
+#The end of this class
